@@ -1,0 +1,34 @@
+Hands-on Practice
+tep 1: Turn off auto-commit
+
+Modify your consumer config:
+
+'auto.offset.reset': 'earliest',
+'enable.auto.commit': False
+
+tep 2: Manually commit after processing
+
+Inside your consumer loop:
+
+consumer.commit(asynchronous=False)
+
+
+Then — crash your consumer after a few messages, restart it, and watch:
+
+Without manual commit sages replay.
+
+With manual commit umer resumes correctly.
+
+tep 3: Observe behavior
+
+Print offset using msg.offset()
+
+Print partition using msg.partition()
+
+Note how offsets advance as messages are read.
+
+ptional Reading
+Confluent Kafka Consumer Offsets Guide
+
+Kafka Delivery Semantics Overview
+Î
