@@ -25,7 +25,7 @@ if __name__ == '__main__':
         'sasl.mechanisms': 'PLAIN',
         'acks': 'all',
         'group.id': 'orders-consumer-group',   # all share same group
-        'auto.offset.reset': 'earliest'        # read from beginning if new group
+        'auto.offset.reset': 'latest'        # read from latest if same group
     }
 
     consumer = Consumer(config)
